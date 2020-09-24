@@ -1,4 +1,4 @@
-# Simple test for NeoPixels on Raspberry Pi
+# Neopixel Morse code
 import time
 import board
 import neopixel
@@ -11,7 +11,7 @@ dash_time = 0.9
 morse_time = 0.3
 letter_time = 0.9
 word_time = 1.8
-word = 'AbC DeF'
+word = 'sos'
 word = word.lower()
 
 
@@ -80,95 +80,137 @@ def g():
 
 def h():
     dot()
+    dot()
+    dot()
+    dot()
     time.sleep(letter_time)
 
 
 def i():
+    dot()
     dot()
     time.sleep(letter_time)
 
 
 def j():
     dot()
+    dash()
+    dash()
+    dash()
     time.sleep(letter_time)
 
 
 def k():
+    dash()
     dot()
+    dash()
     time.sleep(letter_time)
 
 
 def l():
     dot()
-    time.sleep(letter_time)
-
-
-def m():
+    dash()
+    dot()
     dot()
     time.sleep(letter_time)
 
 
+def m():
+    dash()
+    dash()
+    time.sleep(letter_time)
+
+
 def n():
+    dash()
     dot()
     time.sleep(letter_time)
 
 
 def o():
-    dot()
+    dash()
+    dash()
+    dash()
     time.sleep(letter_time)
 
 
 def p():
     dot()
-    time.sleep(letter_time)
-
-
-def q():
+    dash()
+    dash()
     dot()
     time.sleep(letter_time)
 
 
+def q():
+    dash()
+    dash()
+    dot()
+    dash()
+    time.sleep(letter_time)
+
+
 def r():
+    dot()
+    dash()
     dot()
     time.sleep(letter_time)
 
 
 def s():
     dot()
+    dot()
+    dot()
     time.sleep(letter_time)
 
 
 def t():
-    dot()
+    dash()
     time.sleep(letter_time)
 
 
 def u():
     dot()
+    dot()
+    dash()
     time.sleep(letter_time)
 
 
 def v():
     dot()
+    dot()
+    dot()
+    dash()
     time.sleep(letter_time)
 
 
 def w():
     dot()
+    dash()
+    dash()
     time.sleep(letter_time)
 
 
 def x():
+    dash()
     dot()
+    dot()
+    dash()
     time.sleep(letter_time)
 
 
 def y():
+    dash()
     dot()
+    dash()
+    dash()
     time.sleep(letter_time)
 
 
 def z():
+    dash()
+    dash()
+    dot()
     dot()
     time.sleep(letter_time)
 
@@ -233,6 +275,7 @@ def morse(word):
         elif x == 'z':
             z()
         else:
+            pixels.fill((0, 0, 0))
             time.sleep(word_time)
 
 
