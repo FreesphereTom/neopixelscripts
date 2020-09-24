@@ -6,13 +6,14 @@ import neopixel
 num_pixels = int(30)
 pixels = neopixel.NeoPixel(board.D18, 30)
 
+# Times are built to international standards
 dot_time = 0.3
-dash_time = 0.9
-morse_time = 0.3
-letter_time = 0.9
-word_time = 1.8
-word = 'sos'
-word = word.lower()
+dash_time = dot_time * 3
+morse_time = dot_time
+letter_time = dot_time * 2  # Standard is 3 units, but we are already waiting 1 unit in the code, so only doubling this
+word_time = dot_time * 6  # Standard is 7 units, but we are already waiting 1 unit in the code, so only multiply by 6
+load_word = 'sos'
+load_word = load_word.lower()
 
 
 def dot():
@@ -221,58 +222,59 @@ options = {
 
 
 def morse(word):
-    for x in word:
-        if x == 'a':
+    time.sleep(word_time)
+    for xi in word:
+        if xi == 'a':
             a()
-        elif x == 'b':
+        elif xi == 'b':
             b()
-        elif x == 'c':
+        elif xi == 'c':
             c()
-        elif x == 'd':
+        elif xi == 'd':
             d()
-        elif x == 'e':
+        elif xi == 'e':
             e()
-        elif x == 'f':
+        elif xi == 'f':
             f()
-        elif x == 'g':
+        elif xi == 'g':
             g()
-        elif x == 'h':
+        elif xi == 'h':
             h()
-        elif x == 'i':
+        elif xi == 'i':
             i()
-        elif x == 'j':
+        elif xi == 'j':
             j()
-        elif x == 'k':
+        elif xi == 'k':
             k()
-        elif x == 'l':
+        elif xi == 'l':
             l()
-        elif x == 'm':
+        elif xi == 'm':
             m()
-        elif x == 'n':
+        elif xi == 'n':
             n()
-        elif x == 'o':
+        elif xi == 'o':
             o()
-        elif x == 'p':
+        elif xi == 'p':
             p()
-        elif x == 'q':
+        elif xi == 'q':
             q()
-        elif x == 'r':
+        elif xi == 'r':
             r()
-        elif x == 's':
+        elif xi == 's':
             s()
-        elif x == 't':
+        elif xi == 't':
             t()
-        elif x == 'u':
+        elif xi == 'u':
             u()
-        elif x == 'v':
+        elif xi == 'v':
             v()
-        elif x == 'w':
+        elif xi == 'w':
             w()
-        elif x == 'x':
+        elif xi == 'x':
             x()
-        elif x == 'y':
+        elif xi == 'y':
             y()
-        elif x == 'z':
+        elif xi == 'z':
             z()
         else:
             pixels.fill((0, 0, 0))
@@ -280,4 +282,4 @@ def morse(word):
 
 
 while True:
-    morse(list(word))
+    morse(list(load_word))
