@@ -5,16 +5,17 @@ import neopixel
 
 num_pixels = int(30)
 pixels = neopixel.NeoPixel(board.D18, 30)
+pixel_offset = num_pixels - 1
 
 
 def strip(wait):
     for i in range(num_pixels // 2):
         pixels[(num_pixels // 2) + i] = (100, 0, 200)
-        pixels[(num_pixels // 2) - i] = (100, 0, 200)
+        pixels[(pixel_offset // 2) - i] = (100, 0, 200)
         time.sleep(wait)
     for i in range(num_pixels // 2):
         pixels[(num_pixels // 2) + i] = (255, 0, 200)
-        pixels[(num_pixels // 2) - i] = (255, 0, 200)
+        pixels[(pixel_offset // 2) - i] = (255, 0, 200)
         time.sleep(wait)
 
 
