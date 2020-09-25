@@ -2,6 +2,7 @@
 import time
 import board
 import neopixel
+import sys
 
 num_pixels = int(30)
 pixels = neopixel.NeoPixel(board.D18, 30)
@@ -12,19 +13,19 @@ dash_time = dot_time * 3
 morse_time = dot_time
 letter_time = dot_time * 2  # Standard is 3 units, but we are already waiting 1 unit in the code, so only doubling this
 word_time = dot_time * 6  # Standard is 7 units, but we are already waiting 1 unit in the code, so only multiply by 6
-load_word = 'sos'
+load_word = sys.argv[1]
 load_word = load_word.lower()
-
+print(load_word)
 
 def dot():
-    pixels.fill((255, 255, 255))
+    pixels.fill((181, 2, 81))
     time.sleep(dot_time)
     pixels.fill((0, 0, 0))
     time.sleep(morse_time)
 
 
 def dash():
-    pixels.fill((255, 255, 255))
+    pixels.fill((181, 2, 81))
     time.sleep(dash_time)
     pixels.fill((0, 0, 0))
     time.sleep(morse_time)
