@@ -5,20 +5,24 @@ import sys
 
 num_pixels = 30
 pixels = neopixel.NeoPixel(board.D18, 30)
+side = 'l2r'
 
 
 def strip(wait, colour):
+    global side
     r = 1
     for c in colour:
-        if (r % 2) == 0:
+        if side == 'l2r':
             for i in range(num_pixels):
                 pixels[i] = c
                 time.sleep(wait)
+                side = 'r2l'
         else:
             for i in range(num_pixels):
                 move = (num_pixels - 1 - i)
                 pixels[move] = c
                 time.sleep(wait)
+                side = 'l2r'
         r += 1
 
 
